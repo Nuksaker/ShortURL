@@ -4,7 +4,7 @@
 $data = $conn->prepare("SELECT * FROM `url` ORDER BY `url`.`id` ASC");
 $data->execute();
 $rowData = $data->fetchAll();
-
+$servername = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 if (empty($rowData)) {
 ?>
     <tr>
@@ -25,7 +25,7 @@ if (empty($rowData)) {
                 <span><?php echo $rowURL['click']; ?></span>
             </td>
             <td>
-                <a href="<?php echo 'url?u='.$rowURL['short_url']; ?>" target="_blank" id="clickURL"><?php echo 'url?u='.$rowURL['short_url']; ?></a>
+                <a href="<?php echo 'url?u='.$rowURL['short_url']; ?>" target="_blank" id="clickURL"><?php echo $servername.'url?u='.$rowURL['short_url']; ?></a>
             </td>
             <td>
                 <img src="<?php echo $QR_Code ?>" title="Link to my Website" />
