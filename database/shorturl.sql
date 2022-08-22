@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2022 at 03:55 PM
+-- Generation Time: Aug 22, 2022 at 11:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -31,20 +31,28 @@ CREATE TABLE `url` (
   `id` int(11) NOT NULL,
   `full_url` varchar(1024) NOT NULL,
   `short_url` varchar(8) NOT NULL,
-  `click` int(11) NOT NULL
+  `click` int(11) NOT NULL,
+  `history` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `url`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `url` (`id`, `full_url`, `short_url`, `click`) VALUES
-(4, 'https://getbootstrap.com/docs/5.2/forms/form-control/', 'p7Rnex47', 6),
-(7, 'https://www.w3schools.com/', 'mF06hRZB', 10),
-(9, 'https://elements.heroku.com/addons/jawsdb', '8nsKlFbI', 1),
-(10, 'https://nuksaker.github.io/Sorawit.sa', 'Z82V7Owk', 2),
-(11, 'https://learn.jquery.com/using-jquery-core/document-ready/', 'io14MgfL', 3),
-(13, 'https://heroku.com/', 'Y7stxspa', 1);
+INSERT INTO `user` (`id`, `user_id`, `password`) VALUES
+(1, 'admin', '1234');
 
 --
 -- Indexes for dumped tables
@@ -57,6 +65,12 @@ ALTER TABLE `url`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -64,7 +78,13 @@ ALTER TABLE `url`
 -- AUTO_INCREMENT for table `url`
 --
 ALTER TABLE `url`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
