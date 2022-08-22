@@ -29,6 +29,17 @@ if (isset($_REQUEST['insertData'])) {
 
         if (!empty($rowURL)) {
             echo "มีข้อข้อมูลนี้อยู่แล้ว";
+            echo '<script>
+                        setTimeout(function() {
+                        swal({
+                            title: "มีเว็ปนี้อยู่แล้ว",
+                            text: "มีเว็ปไซต์นี้อยู่ในระบบแล้ว !!"
+                            type: "warning"
+                        }, function() {
+                            window.location = "../"; //หน้าที่ต้องการให้กระโดดไป
+                        });
+                    }, 500);
+                </script>';
             // echo json_encode(0);
         } else {
             $insetUrl = $conn->prepare("INSERT INTO url(full_url, short_url) VALUE(:full_url, :short_url)");
@@ -38,7 +49,7 @@ if (isset($_REQUEST['insertData'])) {
             // echo json_encode(1);
             // echo "เพิ่มเรียบร้อย";
             echo '<script>
-                           setTimeout(function() {
+                            setTimeout(function() {
                             swal({
                                 title: "เพิ่มเรียบร้อย",
                                 type: "success"
@@ -46,7 +57,7 @@ if (isset($_REQUEST['insertData'])) {
                                 window.location = "../"; //หน้าที่ต้องการให้กระโดดไป
                             });
                           }, 500);
-                       </script>';
+                </script>';
         }
     }
 }

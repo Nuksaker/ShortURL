@@ -18,4 +18,4 @@ $instClick->bindParam(":click", $click, PDO::PARAM_INT);
 $instClick->execute();
 print_r($row);
 
-header("Location: $row->full_url");
+header("Location: $row->full_url",1500);
