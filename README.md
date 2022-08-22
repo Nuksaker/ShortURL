@@ -4,7 +4,7 @@
 
 ## ขั้นตอนการติดตั้ง
 
-- ติดตั้ง Xampp หรือโปรแกรมที่ใช้รัน PHP และ MySQL
+- ติดตั้ง Xampp หรือโปรแกรมที่ใช้รัน PHP และ phpmyadmin
 - สร้างฐานข้อมูล shorturl
   - สร้างตาราง url
     - \_ CREATE TABLE `url` (
